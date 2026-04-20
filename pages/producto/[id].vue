@@ -16,11 +16,8 @@ onMounted(async () => {
 <template>
   <div v-if="producto">
     <h1>{{ producto.title }}</h1>
-
     <img :src="producto.image" width="200" />
-
     <p>{{ producto.description }}</p>
-
     <h2>${{ producto.price }}</h2>
 
     <button @click="carrito.agregar(producto)">
