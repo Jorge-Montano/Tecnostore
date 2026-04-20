@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 
 const route = useRoute()
 const producto = ref(null)
+const carrito = useCarritoStore()
 
 onMounted(async () => {
   const data = await $fetch(
@@ -21,13 +22,9 @@ onMounted(async () => {
     <p>{{ producto.description }}</p>
 
     <h2>${{ producto.price }}</h2>
+
+    <button @click="carrito.agregar(producto)">
+      Agregar al carrito
+    </button>
   </div>
 </template>
-
-<script setup>
-const carrito = useCarritoStore()
-</script>
-
-<button @click="carrito.agregar(producto)">
-  Agregar al carrito
-</button>
