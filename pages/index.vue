@@ -1,26 +1,35 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-
-const { getProductos } = useApi()
-const productos = ref([])
-
-onMounted(async () => {
-  productos.value = await getProductos()
-})
-</script>
-
 <template>
-  <div>
-    <h1>💻 TechStore</h1>
+  <div class="home">
+    <h1>Bienvenido 🎬</h1>
 
-    <div v-if="productos.length === 0">
-      Cargando productos...
-    </div>
-
-    <ProductoCard
-      v-for="p in productos"
-      :key="p.id"
-      :producto="p"
-    />
+    <NuxtLink to="/app-store" class="btn">
+      Ver películas
+    </NuxtLink>
   </div>
 </template>
+
+<style scoped>
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  position: relative;
+  z-index: 10;
+}
+
+h1 {
+  color: white;
+}
+
+.btn {
+  padding: 12px 20px;
+  background: #00c896;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+</style>

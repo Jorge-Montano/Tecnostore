@@ -1,3 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@pinia/nuxt']
+  nitro: {
+    preset: 'static'
+  }
 })
